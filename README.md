@@ -36,7 +36,16 @@
 
 ## 🌟 Overview
 
-**Windsurf Toolkit for ARM64** is a powerful, automated bash script that enables seamless installation of the **Windsurf Code Editor** (AI-powered IDE by Codeium) on ARM64 devices including **Android Termux**, **Linux ARM64**, and **Proot environments**. 
+
+**Windsurf Toolkit for ARM64** is a powerful, automated bash script designed **exclusively for Linux distributions (such as Ubuntu) installed via Termux on Android devices**. This script requires that your Linux environment has a desktop interface accessible via VNC.
+
+> **Important:** This script will **not** work on stock Android, or on Linux systems that are not installed through Termux. You must have a full Linux desktop (e.g., Ubuntu 24.04) running inside Termux, with VNC access enabled.
+
+If you don't already have a Linux desktop set up on your Android device, follow this guide first:
+
+👉 [How to Install Ubuntu 24.04 on Android Without Root (Mahesh Technicals)](https://maheshtechnicals.com/how-to-install-ubuntu-24-04-on-android-without-root/)
+
+Once your Linux desktop is running and accessible via VNC, you can use this toolkit to install the **Windsurf Code Editor** (AI-powered IDE by Codeium) on your ARM64 device.
 
 This toolkit solves the notorious `dpkg` memory corruption bug (`double free or corruption`) that prevents standard installation on ARM-based systems by intelligently repackaging Debian packages with compatible compression formats.
 
@@ -50,11 +59,11 @@ This toolkit solves the notorious `dpkg` memory corruption bug (`double free or 
 
 ### 🖥️ Supported Platforms
 
-- ✅ **Android Termux** (ARM64/AARCH64)
-- ✅ **Linux ARM64** (Ubuntu, Debian, Raspberry Pi OS)
-- ✅ **Proot-Distro Environments** (Termux-based)
-- ✅ **Chroot Systems** (ARM64 Linux distributions)
-- ✅ **WSL2 ARM** (Windows Subsystem for Linux on ARM)
+- ✅ **Linux distributions (e.g., Ubuntu) installed via Termux on Android** (ARM64/AARCH64)
+- ✅ **Desktop environment required (XFCE, LXDE, etc.)**
+- ✅ **VNC server must be running for desktop access**
+
+> **Not supported:** Stock Android, native Linux ARM64, Raspberry Pi OS, WSL2, or any system not installed through Termux with a desktop and VNC.
 
 ---
 
@@ -98,38 +107,32 @@ This toolkit solves the notorious `dpkg` memory corruption bug (`double free or 
 
 ---
 
+
 ## 📋 Prerequisites
 
-Before running the Windsurf Toolkit, ensure you have:
+Before running the Windsurf Toolkit, you **must** have:
 
-### Required Software
-- **Operating System**: Linux ARM64 / Android Termux
+### 1. Linux Desktop Installed via Termux
+- A full Linux distribution (e.g., Ubuntu 24.04) installed inside Termux on your Android device.
+- Follow this guide if you haven't set it up yet: [Install Ubuntu 24.04 on Android Without Root](https://maheshtechnicals.com/how-to-install-ubuntu-24-04-on-android-without-root/)
+
+### 2. Desktop Environment & VNC
+- A desktop environment (XFCE, LXDE, etc.) installed and running.
+- VNC server running and accessible (so you can use graphical apps).
+
+### 3. Required Software
 - **Shell**: Bash 4.0+
 - **Package Manager**: apt/apt-get (Debian-based distributions)
 - **Network**: Active internet connection for downloads
 - **Storage**: At least 500MB free space
 
-### For Termux Users
-```bash
-# Update packages first
-pkg update && pkg upgrade -y
-
-# Install essential tools
-pkg install wget curl tar -y
-```
-
-### For Linux ARM64 Users
-```bash
-# Update system
-sudo apt update && sudo apt upgrade -y
-
-# Install wget if not present
-sudo apt install wget -y
-```
-
-### Permissions
+### 4. Permissions
 - **Root/Sudo Access**: Required for package installation
 - **Write Permissions**: Needed for `/usr/share/` and `/usr/local/` directories
+
+---
+
+> **Note:** This script is not intended for use on native Linux ARM64, Raspberry Pi, or WSL2. It is specifically for Linux desktop environments running inside Termux on Android, with VNC access.
 
 ---
 
